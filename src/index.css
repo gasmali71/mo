@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Couleur dominante : Bleu apaisant */
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+    
+    /* Couleur secondaire : Vert menthe */
+    --secondary: 160 84% 39%;
+    --secondary-foreground: 355 100% 100%;
+    
+    /* Couleur d'accent : Lavande */
+    --accent: 267 100% 75%;
+    --accent-foreground: 355 100% 100%;
+    
+    /* Tons neutres */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    
+    /* Autres couleurs système */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: var(--primary);
+    
+    /* Bordures arrondies */
+    --radius: 1rem;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+}
+
+@layer components {
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:scale-[1.02] hover:bg-gradient-to-br from-white to-blue-50;
+  }
+
+  .nav-link {
+    @apply relative overflow-hidden transition-colors duration-300;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+}
